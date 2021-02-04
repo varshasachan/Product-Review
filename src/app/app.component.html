@@ -19,6 +19,16 @@
       </select>
     </label>
   </div>
+  <div class="col-sm-auto">
+    <label for="favcity">
+      <select id="favcity" name="select" [(ngModel)]="sortColumn" (change)='sortBy(reviews)'>
+        <option selected="selected" [value]="" disabled>Sort By</option>
+        <option [value]="0">Overall Ratings</option>
+        <option [value]="1">Usefulness</option>
+        <option [value]="2">Reviewer Connection Level</option>
+      </select>
+    </label>
+  </div>
 </div>
 <br>
 

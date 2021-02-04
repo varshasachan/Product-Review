@@ -17,15 +17,15 @@ select {
     appearance: none;
     border-radius: 0;
   }
-  
+
   label[for=favcity] {
     position: relative;
     display: block;
-    width: 400px;
+    width: 250px;
     overflow: hidden;
     cursor: pointer;
   }
-  
+
   label[for=favcity]::after {
     content: ' ';
     position: absolute;
@@ -37,7 +37,7 @@ select {
     background:  #1976d2 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOBAMAAAGq7RFVAAAAJ1BMVEX///////////////////////////////////////////////////9Ruv0SAAAADHRSTlMACAoREoKDt7y9zc5qtZoyAAAAcklEQVQIHQXBsQnCUAAFwFOCCKbIABaWERzi1yaFAzmEpHYEC8GUKVQEkbyhvOOkZqdWt0/QYKqLzQeF7dv6y/RLwa2wYtk4Xxxe+t8yd1WuM/rcUc2gYHEeoP02umSgTR50ybBPRuiSZAS6ZAQ4jgCAPyjYJiRH4fymAAAAAElFTkSuQmCC') no-repeat center center;
     pointer-events: none;
   }
-  
+
   label[for=favcity] select {
     border: 5px solid #eeeeee;
     background: white;
@@ -47,19 +47,19 @@ select {
     font-family: monospace;
     cursor: pointer;
   }
-  
+
   label[for=favcity] select::-ms-expand {
       display: none;
   }
-  
+
   label[for=favcity] :-moz-any(select) {
     width: 110%;
   }
-  
+
   label[for=favcity].ie9 select {
     width: 110%;
   }
-  
+
   label[for=favcity] select:focus {
     outline: 1px dotted #A9A9A9;
   }
@@ -71,24 +71,24 @@ select {
     padding: 16px;
     margin: 16px 0
   }
-  
+
   .container::after {
     content: "";
     clear: both;
     display: table;
   }
-  
+
   .container img {
     float: left;
     margin-right: 20px;
     border-radius: 50%;
   }
-  
+
   .container span {
     font-size: 20px;
     margin-right: 15px;
   }
-  
+
   @media (max-width: 500px) {
     .container {
         text-align: center;
@@ -98,5 +98,5 @@ select {
         float: none;
         display: block;
     }
-  } 
+  }
 
