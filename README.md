@@ -4,9 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # How to Run Project:-
 1). Git clone from Given Repo.
+
 2). Do npm install.
+
 3). Since It was givig CORS error so used CORS unblock plugin for Chrome Browser.
+
 5). Download Jquery-3.5.1 and copy it to node_modules/bootstrap/dist/js.
+
 6). Do ng serve
 
 # Functionalities Cover in the Project:- 
