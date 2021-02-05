@@ -9,19 +9,10 @@ import { ProductService } from '../service/review-service';
 export class ProductReviewComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
-
-  
-  @Input() productId: string = '';
-  @Input() viewerId: string = '';
+  @Input() ratings: any = {};
+  @Input() id = {};
 
   ngOnInit(): void {
-    console.log(this.productId);
-    console.log(this.viewerId);
-    this.productService.getSiteDetails(this.productId, this.viewerId).subscribe(
-      (data: any) => {
-        console.log(data);
-      }
-    )
   }
 
 }

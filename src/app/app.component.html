@@ -49,14 +49,15 @@
     <p class="card-text"><b>Usefulness: </b>{{review.usefulness}}</p>
     <p class="card-text" *ngIf="review.friend"><b>Reviewer Name: </b>{{review.reviewer.name}}</p>
     <button class="btn btn-primary" (click)="showAll(review.ratings, review.user_id)">Show all ratings</button>
-    <p class="card-text" *ngIf="currentId === review.user_id && showAllRatings">
-      <star-rating labelText="Delivery Time" [starType]="'svg'" [rating]="allRatings.delivery_time"></star-rating>
-      <star-rating labelText="Discounts & Offers" [starType]="'svg'" [rating]="allRatings.discounts_and_offers"></star-rating>
-      <star-rating labelText="Matches Desription" [starType]="'svg'" [rating]="allRatings.matches_description"></star-rating>
-      <star-rating labelText="Matches Photo" [starType]="'svg'" [rating]="allRatings.matches_photo"></star-rating>
-      <star-rating labelText="Packaging" [starType]="'svg'" [rating]="allRatings.packaging"></star-rating>
-      <star-rating labelText="Price" [starType]="'svg'" [rating]="allRatings.price"></star-rating>
-    </p>
+    <app-product-review *ngIf="currentId === review.user_id && showAllRatings" [ratings]= "allRatings" [id]="currentId"></app-product-review>
+    <!--    <p class="card-text" *ngIf="currentId === review.user_id && showAllRatings">-->
+<!--      <star-rating labelText="Delivery Time" [starType]="'svg'" [rating]="allRatings.delivery_time"></star-rating>-->
+<!--      <star-rating labelText="Discounts & Offers" [starType]="'svg'" [rating]="allRatings.discounts_and_offers"></star-rating>-->
+<!--      <star-rating labelText="Matches Desription" [starType]="'svg'" [rating]="allRatings.matches_description"></star-rating>-->
+<!--      <star-rating labelText="Matches Photo" [starType]="'svg'" [rating]="allRatings.matches_photo"></star-rating>-->
+<!--      <star-rating labelText="Packaging" [starType]="'svg'" [rating]="allRatings.packaging"></star-rating>-->
+<!--      <star-rating labelText="Price" [starType]="'svg'" [rating]="allRatings.price"></star-rating>-->
+<!--    </p>-->
   </div>
 </div>
 
@@ -65,5 +66,5 @@
 </div>
 
 
-<!-- <app-product-review [productId]= "selectedProductValue" [viewerId]= "selectedViewerValue"></app-product-review> -->
+
 <router-outlet></router-outlet>

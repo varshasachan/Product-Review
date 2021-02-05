@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   sortColumn = '';
   showAllRatings: boolean = false;
   reviewData: any = {};
+  error: string = '';
   reviews: any = [];
   allRatings: any ={};
   currentId: string = '';
@@ -35,7 +36,8 @@ export class AppComponent implements OnInit {
        this.reviewData = data;
        this.reviews = data.reviews;
        console.log(this.reviewData);
-      }
+      },
+    (error: any) => { this.error = error; }
     );
   }
 

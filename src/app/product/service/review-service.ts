@@ -16,6 +16,17 @@ export class ProductService {
     const productId = prodId;
     const viewerId = viewId;
     const queryParams = `/${productId}/${viewerId}`;
-    return this.http.get(BASE_URL + queryParams);
+    return this.http.get(BASE_URL + queryParams).pipe(catchError(this.ErrorHandler));
+  }
+
+  ErrorHandler(error: HttpErrorResponse) {
+    // console.log(error.message);
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occured:', error.error.message);
+    }
+    else {
+      console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error.message}`);
+    }
+    return throwError('Something Bad Happened...Please try again later');
   }
 }
