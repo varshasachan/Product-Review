@@ -1,9 +1,10 @@
-<div class="jumbotron" style="background: #008ae6; height: 1px;">
-  <h3 style="padding-left:26rem; color:whitesmoke">See the Product Reviews Here</h3>
+<div class="jumbotron jumbo">
+  <h3 class="heading" >See the Product Reviews Here</h3>
 </div>
 
 <div class="row">
-  <div class="col-sm-auto" style="margin-left: 15rem;">
+  <div class="col-sm-auto row-style" >
+    <h5 class="color-style">{{selProd}}</h5>
     <label for="favcity">
       <select id="favcity" name="select" [(ngModel)]="selectedProductValue" (change)='onOptionsSelected(selectedProductValue)'>
         <option selected="selected" disabled>Select Product</option>
@@ -12,6 +13,7 @@
     </label>
   </div>
   <div class="col-sm-auto">
+    <h5 class="color-style">{{selView}}</h5>
     <label for="favcity">
       <select id="favcity" name="select" [(ngModel)]="selectedViewerValue" (change)='onOptionsSelected(selectedViewerValue)'>
         <option  selected="selected" disabled>Select Viewer</option>
@@ -20,6 +22,7 @@
     </label>
   </div>
   <div class="col-sm-auto">
+    <h5 class="color-style">{{sortType}}</h5>
     <label for="favcity">
       <select id="favcity" name="select" [(ngModel)]="sortColumn" (change)='sortBy(reviews)'>
         <option selected="selected" [value]="" disabled>Sort By</option>
@@ -32,23 +35,32 @@
 </div>
 <br>
 
-<h3 style="margin-left: 15rem;">Product Review</h3>
+<h3 class="row-style clr-style">Product Review</h3>
 
 <ng-http-loader></ng-http-loader>
 
-<div *ngFor="let review of reviews | paginate: { itemsPerPage: 3, currentPage: p }" class="card" style="width: 52rem; margin-left: 15rem; padding-bottom: 2rem;">
+<div *ngFor="let review of reviews | paginate: { itemsPerPage: 3, currentPage: p }" class="card card-style" >
   <div class="card-header">
     <b>Title: </b>{{review.title}}
   </div>
   <div class="card-body">
+    <star-rating labelText="Overall Rating" [starType]="'svg'" [rating]="review.ratings.Overall"></star-rating><br>
     <p class="card-title"><b>Comments: </b>{{review.comment}}</p>
     <p class="card-text"><b>Usefulness: </b>{{review.usefulness}}</p>
-    <b>Overall Ratings: </b><star-rating [starType]="'svg'" [rating]="review.ratings.Overall"></star-rating>
-    <a href="#" class="btn btn-primary">Show all ratings</a>
+    <p class="card-text" *ngIf="review.friend"><b>Reviewer Name: </b>{{review.reviewer.name}}</p>
+    <button class="btn btn-primary" (click)="showAll(review.ratings, review.user_id)">Show all ratings</button>
+    <p class="card-text" *ngIf="currentId === review.user_id && showAllRatings">
+      <star-rating labelText="Delivery Time" [starType]="'svg'" [rating]="allRatings.delivery_time"></star-rating>
+      <star-rating labelText="Discounts & Offers" [starType]="'svg'" [rating]="allRatings.discounts_and_offers"></star-rating>
+      <star-rating labelText="Matches Desription" [starType]="'svg'" [rating]="allRatings.matches_description"></star-rating>
+      <star-rating labelText="Matches Photo" [starType]="'svg'" [rating]="allRatings.matches_photo"></star-rating>
+      <star-rating labelText="Packaging" [starType]="'svg'" [rating]="allRatings.packaging"></star-rating>
+      <star-rating labelText="Price" [starType]="'svg'" [rating]="allRatings.price"></star-rating>
+    </p>
   </div>
 </div>
 
-<div style="padding-left: 30rem; margin-top: 3rem;">
+<div class="pagination-style">
 <pagination-controls  (pageChange)="p = $event"></pagination-controls>
 </div>
 

@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getSiteDetails(prodId: string, viewId: string): any {
-    const BASE_URL = 'http://www.i2ce.in/reviews';  
+    const BASE_URL = 'http://www.i2ce.in/reviews';
     const productId = prodId;
     const viewerId = viewId;
     const queryParams = `/${productId}/${viewerId}`;

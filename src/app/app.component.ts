@@ -16,9 +16,14 @@ export class AppComponent implements OnInit {
   selectedViewerValue = '1';
   p: number = 1;
   sortColumn = '';
-
+  showAllRatings: boolean = false;
   reviewData: any = {};
   reviews: any = [];
+  allRatings: any ={};
+  currentId: string = '';
+  selProd: string = 'Select Product';
+  selView: string = 'Select Viewer';
+  sortType: string = 'Sort By';
 
   ngOnInit(): void {
     this.apicall();
@@ -47,8 +52,18 @@ export class AppComponent implements OnInit {
     }
     console.log(arr);
   }
+
+  showAll(ratings: any, id: string ): void{
+    this.showAllRatings = true;
+    this.allRatings = ratings;
+    this.currentId = id;
+    console.log('Show All Button is clicked', this.currentId);
+  }
+
   onOptionsSelected(value: string): void {
+    this.showAllRatings = false;
     this.sortColumn = '';
+    this.allRatings = {};
     console.log('the selected Product value is ' + value);
     this.apicall();
 }
